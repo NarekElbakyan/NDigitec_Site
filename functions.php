@@ -102,11 +102,13 @@ add_action( 'widgets_init', 'ndigitec_widgets_init' );
  * Enqueue scripts and styles.
  */
 function ndigitec_scripts() {
-	wp_enqueue_style( 'ndigitec-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'ndigitec-style', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_script('ndigite-jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', array(), '20120207', true);
 
 	wp_enqueue_script( 'ndigitec-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'ndigitec-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'ndigitec-site', get_template_directory_uri() . '/js/site.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
